@@ -98,7 +98,7 @@ def prompt_for_search_parameters():
     keyword1 = input("Enter the first keyword: ")
     keyword2 = input("Enter the second keyword (optional, press enter to skip): ")
     try:
-        month = int(month) if month.isdigit() and 1 <= int(month) <= 12 else "all"
+        month = int(month) if month.isdigit() and 1 <= int(month) <= 12 else "0"
     except ValueError:
         month = "all"
     start_date, end_date = prompt_for_dates()
@@ -310,7 +310,7 @@ def fetch_data_with_dynamic_payload(
         "r1": "1",
         "KIND": "L",
         "CODE": "",
-        "month1": str(month) if 1 <= month <= 12 else "0",
+        "month1": str(month) if 1 <= int(month) <= 12 else "0",
         "begin_day": str(start_date),
         "end_day": str(end_date),
         "keyWord": keyword1,
@@ -323,7 +323,7 @@ def fetch_data_with_dynamic_payload(
         "off": "1",
         "firstin": "1",
         "year": str(int(tw_year) + 1911),
-        "month": str(month) if 1 <= month <= 12 else "0",
+        "month": str(month) if 1 <= int(month) <= 12 else "0",
         "b_date": str(start_date),
         "e_date": str(end_date),
     }
