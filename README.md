@@ -1,2 +1,0 @@
-# mops
-web crawler
